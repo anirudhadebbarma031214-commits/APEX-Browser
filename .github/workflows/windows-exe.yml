@@ -1,0 +1,37 @@
+name: Build Windows EXE
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'style.css'
+      - 'app.js'
+      - 'logo.svg'
+      - 'package.json'
+      - 'electron-main.cjs'
+      - '.github/workflows/windows-exe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: npm install
+      - name: Build portable EXE
+        run: npm run dist:win
+      - name: Upload EXE
+        uses: actions/upload-artifact@v4
+        with:
+          name: APEX-Browser-Windows-EXE
+          path: dist/*.exe
+          if-no-files-found: error
+          retention-days: 14
