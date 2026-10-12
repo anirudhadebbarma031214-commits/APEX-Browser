@@ -1,0 +1,25 @@
+{
+  "name": "apex-browser",
+  "version": "1.0.0",
+  "description": "APEX Browser web dashboard packaged for desktop and Android",
+  "main": "electron-main.cjs",
+  "author": "ANI Studio",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.anistudio.apexbrowser",
+    "productName": "APEX Browser",
+    "files": ["index.html", "style.css", "app.js", "logo.svg", "electron-main.cjs"],
+    "win": {
+      "target": ["portable"],
+      "artifactName": "APEX-Browser-Setup-${version}.${ext}"
+    }
+  }
+}
