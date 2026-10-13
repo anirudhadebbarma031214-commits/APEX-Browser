@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - "ani-chat/**"
+      - "index.html"
       - ".github/workflows/ani-chat-web.yml"
   workflow_dispatch:
 
