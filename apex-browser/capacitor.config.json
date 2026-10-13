@@ -1,0 +1,8 @@
+{
+  "appId": "com.anistudio.apexbrowser",
+  "appName": "APEX Browser",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  }
+}
