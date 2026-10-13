@@ -1,0 +1,9 @@
+{
+  "name": "apex-browser-android",
+  "version": "1.0.0",
+  "private": true,
+  "description": "APEX Browser Android app",
+  "scripts": {
+    "build": "echo Static web assets ready"
+  }
+}
