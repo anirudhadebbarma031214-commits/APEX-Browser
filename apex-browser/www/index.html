@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090b12"><meta name="description" content="APEX Browser — a gaming-inspired browser dashboard.">
+<title>APEX Browser</title><link rel="icon" href="logo.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="rail">
+  <div class="brand"><img src="logo.svg" alt="APEX"><span>APEX</span></div>
+  <button class="rail-btn active" data-view="home" title="Home">⌂</button>
+  <button class="rail-btn" data-view="privacy" title="Privacy">◈</button>
+  <button class="rail-btn" data-view="tools" title="Tools">▦</button>
+  <div class="rail-bottom"><button class="rail-btn" id="settingsBtn" title="Settings">⚙</button></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="tab active"><span class="tab-dot"></span> New Tab <button id="newTab" aria-label="New tab">＋</button></div><div class="top-actions"><span class="status-dot"></span><span>APEX PROTECTION</span><button id="minimizeHint" title="About">···</button></div></header>
+<section class="toolbar">
+<button class="tool" id="back" title="Back">←</button><button class="tool" id="forward" title="Forward">→</button><button class="tool" id="reload" title="Reload">↻</button>
+<form id="navForm" class="address-wrap"><span>⌕</span><input id="address" autocomplete="off" spellcheck="false" placeholder="Search or enter a website address…"><button type="submit">GO ↵</button></form>
+<button class="tool shield" id="quickScan" title="Check a URL">◇</button><button class="tool" id="menuBtn" title="Menu">☰</button>
+</section>
+<section id="homeView" class="view">
+<div class="hero"><div class="hero-glow"></div><div class="eyebrow"><span class="live-dot"></span> YOUR SPACE. YOUR RULES.</div><h1>Browse beyond<br><span>the ordinary.</span></h1><p>A sharper web experience, built for your flow.</p>
+<form id="searchForm" class="search-box"><span>⌕</span><input id="searchInput" placeholder="What are we exploring today?" autocomplete="off"><button type="submit">Search <span>↗</span></button></form>
+<div class="quick-links">
+<a href="https://www.youtube.com" target="_blank" rel="noopener"><span class="link-icon red">▶</span><span>YouTube</span></a>
+<a href="https://github.com" target="_blank" rel="noopener"><span class="link-icon white">⌘</span><span>GitHub</span></a>
+<a href="https://www.wikipedia.org" target="_blank" rel="noopener"><span class="link-icon blue">W</span><span>Wikipedia</span></a>
+<a href="https://mail.google.com" target="_blank" rel="noopener"><span class="link-icon yellow">✉</span><span>Gmail</span></a>
+<button id="addShortcut"><span class="link-icon dashed">＋</span><span>Add shortcut</span></button>
+</div></div>
+<div class="section-head"><div><div class="eyebrow">CONTROL CENTER</div><h2>Your browser, your rules.</h2></div><span class="muted">QUICK SETTINGS</span></div>
+<div class="cards">
+<article class="card protection"><div class="card-top"><span class="card-icon">◈</span><span class="pill green">ACTIVE</span></div><h3>Ad & tracker blocker</h3><p>Reduce common tracking requests on pages you visit.</p><label class="switch"><input type="checkbox" id="adblock" checked><span></span></label><small id="blockState">Protection enabled</small></article>
+<article class="card"><div class="card-top"><span class="card-icon purple">⌁</span><span class="pill">ON-DEMAND</span></div><h3>URL safety check</h3><p>Check a link for suspicious patterns before opening it.</p><button class="text-btn" id="scanBtn">Check a link <span>↗</span></button></article>
+<article class="card"><div class="card-top"><span class="card-icon blue">◷</span><span class="pill">LOCAL</span></div><h3>Focus session</h3><p>Start a distraction-free 25-minute focus timer.</p><button class="text-btn" id="focusBtn">Start focus <span>↗</span></button><small id="focusState">Ready when you are</small></article>
+</div>
+<footer><span>APEX BROWSER <span class="muted">· EARLY ACCESS</span></span><span>Designed for your space <span class="pink">✦</span></span></footer>
+</section>
+<section id="privacyView" class="view hidden"><div class="page-title"><div class="eyebrow">PRIVACY CENTER</div><h1>Stay in control.</h1><p>Manage the protections available in this dashboard prototype.</p></div><div class="settings-card"><div><h3>Ad & tracker blocker</h3><p>Toggle the prototype's blocker setting. A web dashboard cannot filter every request in other websites.</p></div><label class="switch"><input type="checkbox" id="adblock2" checked><span></span></label></div><div class="settings-card"><div><h3>Link safety check</h3><p>Checks URL formatting and known suspicious patterns only. It is not antivirus software and cannot guarantee a site is safe.</p></div><button class="text-btn" id="scanBtn2">Check a link ↗</button></div></section>
+<section id="toolsView" class="view hidden"><div class="page-title"><div class="eyebrow">TOOLS</div><h1>Tools for your flow.</h1><p>Small utilities for a calmer browsing session.</p></div><div class="tools-grid"><button class="tool-card" id="focusBtn2"><b>◷</b><h3>Focus timer</h3><p>25-minute focus session</p></button><button class="tool-card" id="scanBtn3"><b>◇</b><h3>URL checker</h3><p>Review a link before opening</p></button><button class="tool-card" id="clearBtn"><b>⌫</b><h3>Clear this session</h3><p>Clear local shortcuts and timer state</p></button></div></section>
+</main>
+</div>
+<div class="toast" id="toast" role="status"></div>
+<dialog id="scanDialog"><button class="dialog-close" id="closeDialog">×</button><div class="eyebrow">APEX LINK CHECK</div><h2>Check a website</h2><p class="muted">This is a lightweight URL pattern check, not a malware scan.</p><form id="scanForm"><input id="scanInput" placeholder="https://example.com" required><button class="primary" type="submit">Analyze link</button></form><div id="scanResult" class="scan-result hidden"></div></dialog>
+<script src="app.js"></script>
+</body></html>
